@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 18% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 18% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 189 95% 55%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 215 16% 60%;
+
+    --accent: 271 91% 65%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 189 95% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom portfolio colors */
+    --tech-glow: 189 95% 55%;
+    --tech-glow-secondary: 271 91% 65%;
+    --card-hover: 220 18% 10%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(189 95% 55% / 0.2), hsl(271 91% 65% / 0.2));
+    --gradient-glow: linear-gradient(135deg, hsl(189 95% 55%), hsl(271 91% 65%));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(189 95% 55% / 0.3);
+    --shadow-card: 0 10px 40px hsl(220 20% 4% / 0.5);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-glow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+}
