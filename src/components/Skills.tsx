@@ -7,10 +7,10 @@ const Skills = () => {
       icon: Code2,
       color: "primary",
       skills: [
-        { name: "React.js", level: 90 },
-        { name: "HTML & CSS", level: 95 },
-        { name: "TailwindCSS", level: 90 },
-        { name: "JavaScript", level: 85 },
+        { name: "React.js" },
+        { name: "HTML & CSS" },
+        { name: "TailwindCSS" },
+        { name: "JavaScript" },
       ],
     },
     {
@@ -18,10 +18,10 @@ const Skills = () => {
       icon: Database,
       color: "accent",
       skills: [
-        { name: "Python", level: 85 },
-        { name: "Java", level: 80 },
-        { name: "SQL & PostgreSQL", level: 85 },
-        { name: "Node.js", level: 75 },
+        { name: "Python" },
+        { name: "Java" },
+        { name: "SQL & PostgreSQL" },
+        { name: "Node.js" },
       ],
     },
     {
@@ -29,21 +29,22 @@ const Skills = () => {
       icon: Brain,
       color: "primary",
       skills: [
-        { name: "ML Fundamentals", level: 80 },
-        { name: "Model Integration", level: 85 },
-        { name: "LLM API Usage", level: 90 },
-        { name: "Custom Models (YOLO)", level: 75 },
+        { name: "ML Fundamentals" },
+        { name: "Model Integration" },
+        { name: "LLM API Usage" },
+        { name: "Custom Models (YOLO)" },
       ],
     },
     {
-      title: "Other Technologies",
+      title: "Others",
       icon: Wrench,
       color: "accent",
       skills: [
-        { name: "Prompt Engineering", level: 90 },
-        { name: "Authentication Systems", level: 85 },
-        { name: "Solidity & Web3", level: 70 },
-        { name: "IPFS & Ethers.js", level: 75 },
+        { name: "OOPs" },
+        { name: "System Design" },
+        { name: "Operating Systems" },
+        { name: "DBMS" },
+        { name: "Computer Networks" },
       ],
     },
   ];
@@ -80,19 +81,13 @@ const Skills = () => {
                     <h3 className="text-xl font-bold">{category.title}</h3>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="flex flex-wrap gap-3">
                     {category.skills.map((skill) => (
-                      <div key={skill.name}>
-                        <div className="flex justify-between mb-2">
-                          <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                          <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                        </div>
-                        <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out"
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
+                      <div
+                        key={skill.name}
+                        className="px-4 py-2 bg-secondary/50 border border-border rounded-lg text-sm font-medium hover:border-primary/50 transition-colors"
+                      >
+                        {skill.name}
                       </div>
                     ))}
                   </div>

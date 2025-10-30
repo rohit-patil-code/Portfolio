@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Github, Linkedin, Code2 } from "lucide-react";
+import { MapPin, Github, Linkedin } from "lucide-react";
+import LeetCodeIcon from "@/components/icons/LeetCodeIcon";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -22,12 +23,16 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-
           {/* Main Heading */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
             Hi, I'm{" "}
             <span className="text-gradient">Rohit Patil</span>
           </h1>
+
+          {/* Subtitle */}
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
+            Full-Stack Developer | ML Enthusiast
+          </p>
 
           {/* Description */}
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
@@ -82,7 +87,7 @@ const Hero = () => {
               className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
               aria-label="LeetCode"
             >
-              <Code2 size={24} />
+              <LeetCodeIcon size={24} />
             </a>
           </div>
 

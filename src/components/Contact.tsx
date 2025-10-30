@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github, Code2, Send } from "lucide-react";
+import { Mail, Linkedin, Github, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import LeetCodeIcon from "@/components/icons/LeetCodeIcon";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -59,7 +60,7 @@ const Contact = () => {
       color: "primary",
     },
     {
-      icon: Code2,
+      icon: LeetCodeIcon,
       label: "LeetCode",
       value: "@Rohit_patil_",
       href: "https://leetcode.com/u/Rohit_patil_/",
@@ -110,8 +111,6 @@ const Contact = () => {
                   })}
                 </div>
               </div>
-
-              
             </div>
 
             {/* Right: Contact Form */}
