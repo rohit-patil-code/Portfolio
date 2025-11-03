@@ -29,11 +29,6 @@ const Hero = () => {
             <span className="text-gradient">Rohit Patil</span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
-            Full-Stack Developer | ML Enthusiast
-          </p>
-
           {/* Description */}
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
             Passionate about full-stack web development and machine learning. I enjoy building scalable applications 

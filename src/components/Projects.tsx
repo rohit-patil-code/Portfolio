@@ -14,7 +14,8 @@ const Projects = () => {
         "Responsive UI with rich-text editor",
         "Efficient prompt engineering",
       ],
-      github: "#",
+      github: "https://github.com/rohit-patil-code/AI-Blog-Editor",
+      live: "https://aiblog.rohitcodes.tech",
       gradient: "from-primary to-accent",
     },
     {
@@ -28,7 +29,7 @@ const Projects = () => {
         "Shortest route calculation",
         "Live traffic integration",
       ],
-      github: "#",
+      github: "https://github.com/rohit-patil-code/Ambulance-detection-system",
       gradient: "from-accent to-primary",
     },
     {
@@ -42,7 +43,7 @@ const Projects = () => {
         "Smart contract for NFT trading",
         "Auto-display owned NFTs",
       ],
-      github: "#",
+      github: "https://github.com/rohit-patil-code/NFT-marketplace",
       gradient: "from-primary via-accent to-primary",
     },
   ];
@@ -122,14 +123,18 @@ const Projects = () => {
                         <Github size={18} className="mr-2" />
                         View Code
                       </Button>
-                      <Button
-                        variant="outline"
-                        className="w-full"
-                        onClick={() => window.open(project.github, "_blank")}
-                      >
-                        <ExternalLink size={18} className="mr-2" />
-                        Live Demo
-                      </Button>
+
+                      {/* Only show Live Demo button when a live URL is provided */}
+                      {project.live && (
+                        <Button
+                          variant="outline"
+                          className="w-full"
+                          onClick={() => window.open(project.live, "_blank")}
+                        >
+                          <ExternalLink size={18} className="mr-2" />
+                          Live Demo
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>
