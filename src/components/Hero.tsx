@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Github, Linkedin } from "lucide-react";
-import LeetCodeIcon from "@/components/icons/LeetCodeIcon";
+import LeetCodeIcon from "@/components/icons/LeetcodeIcon";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {

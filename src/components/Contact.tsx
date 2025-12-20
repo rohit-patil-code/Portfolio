@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Linkedin, Github, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import LeetCodeIcon from "@/components/icons/LeetCodeIcon";
+import LeetCodeIcon from "@/components/icons/LeetcodeIcon";
 
 const Contact = () => {
   const { toast } = useToast();
