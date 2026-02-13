@@ -1,7 +1,7 @@
 "use client";
 import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";
-import { FadeIn } from "@/components/ui/FadeIn";
+
 
 export function Skills() {
     const skills = [

@@ -1,6 +1,6 @@
 "use client";
 import { Container } from "@/components/ui/Container";
-import { FadeIn } from "@/components/ui/FadeIn";
+
 import { motion } from "framer-motion";
 
 export function About() {

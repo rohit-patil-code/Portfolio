@@ -1,6 +1,6 @@
 "use client";
 import { Container } from "@/components/ui/Container";
-import { FadeIn } from "@/components/ui/FadeIn";
+
 import { motion } from "framer-motion";
 import { Github, Mail, Linkedin } from "lucide-react";
 import Link from "next/link";
