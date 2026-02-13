@@ -32,7 +32,7 @@ export default function Home() {
         <Contact />
       </ScrollReveal>
       <footer className="py-6 text-center text-sm text-zinc-500">
-        <p>&copy; {new Date().getFullYear()} Rohit Patil. All rights reserved. <!-- Deploy Trigger --></p>
+        <p>&copy; {new Date().getFullYear()} Rohit Patil. All rights reserved. {/* Deploy Trigger */}</p>
       </footer>
     </div>
   );
