@@ -6,7 +6,7 @@ import { HeroSocials } from "./HeroSocials";
 
 export function Hero() {
     return (
-        <section className="relative flex min-h-[calc(100vh-4rem)] flex-col justify-center overflow-hidden py-10 sm:py-0">
+        <section className="relative flex min-h-[calc(100vh-4rem)] lg:mt-10 sm:mt-2 flex-col justify-center overflow-hidden py-10 sm:py-0">
             <Container className="flex flex-col items-center justify-center gap-6 mx-auto text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

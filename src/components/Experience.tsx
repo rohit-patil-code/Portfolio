@@ -5,16 +5,21 @@ import { motion } from "framer-motion";
 export function Experience() {
     const education = [
         {
-            role: "B.Tech in Computer Science & Engineering",
+            role: "B.Tech in Computer Science and Engineering",
             company: "BMS Institute of Technology and Management",
             period: "2022 - 2026",
-            description: "Proposed Final Year Project: [Solar Tracking System]. Maintaining a CGPA of [7.90].",
+            description: (
+                <>
+                    Proposed Final Year Project: <strong>Solar Tracking System. </strong>
+                    Maintaining a CGPA of <strong>7.90</strong>.
+                </>
+            ),
         },
         {
             role: "Higher Secondary Education",
             company: "PDJ PU College",
             period: "2020 - 2022",
-            description: "Major in Science (PCM).",
+            description: "Major in Science (PCMC).",
         },
     ];
 

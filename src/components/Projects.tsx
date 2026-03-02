@@ -11,24 +11,24 @@ export function Projects() {
         {
             title: "AI Powered OA-Recall System",
             description: "A platform helping candidates reconstruct and practice past Online Assessment questions using generative AI. Features question recall from memory and actionable learning insights.",
-            tech: ["Next.js 16", "Supabase", "Gemini AI", "Tailwind 4"],
-            image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop",
+            tech: ["Next.js", "BullMQ", "Gemini AI", "Cerebras API", "PostgreSQL", "Redis", "AWS EC2", "AWS S3", "NodeJS"],
+            image: "/OARecall2.png",
             demo: "#",
-            github: "#"
+            github: "https://github.com/rohit-patil-code/InterviewReplay"
         },
         {
             title: "AI-Powered Blog Editor",
             description: "Full-stack blogging platform with AI content assistance, clean UI, and scalable architecture. Features intelligent editing suggestions and automated formatting.",
-            tech: ["React.js", "Node.js", "Redis", "AWS EC2"],
+            tech: ["React.js", "Node.js", "Redis", "AWS EC2", "AWS RDS", "AWS RDS"],
             image: "https://images.unsplash.com/photo-1499750310159-54f0f2954aef?q=80&w=2600&auto=format&fit=crop",
             demo: "https://blog.rohitcodes.tech",
             github: "https://github.com/rohit-patil-code/AI-Blog-Editor"
         },
         {
-            title: "Ambulance Detection & Routing",
+            title: "Ambulance Detection and Routing",
             description: "Computer vision system utilizing YOLOv5 and Google Maps API to detect emergency vehicles and optimize traffic routing dynamically in real-time.",
-            tech: ["Python", "YOLOv5", "OpenCV", "Flask"],
-            image: "https://images.unsplash.com/photo-1587815377593-9c59573887c2?q=80&w=2600&auto=format&fit=crop",
+            tech: ["Python", "YOLOv5", "OpenCV", "Flask", "Google Maps API"],
+            image: "/Ambulance.png",
             demo: "#",
             github: "https://github.com/rohit-patil-code/Ambulance-detection-system"
         }

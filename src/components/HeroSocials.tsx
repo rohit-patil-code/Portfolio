@@ -19,12 +19,6 @@ export function HeroSocials() {
                 icon={<Linkedin size={18} />}
             />
 
-            <SocialButton
-                href="https://leetcode.com/u/Rohit_patil_/"
-                label="LeetCode"
-                icon={<LeetCodeIcon />}
-            />
-
         </div>
     );
 }
