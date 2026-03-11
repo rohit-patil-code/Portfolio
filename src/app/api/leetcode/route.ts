@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
-    const { searchParams } = new URL(request.url);
-    const username = searchParams.get('username') || 'Rohit_patil_';
+export const dynamic = "force-static";
+
+export async function GET() {
+    const username = 'Rohit_patil_';
 
     const query = `
     query userProfileCalendar($username: String!, $year: Int) {

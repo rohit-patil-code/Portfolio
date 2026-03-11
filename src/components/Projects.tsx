@@ -62,11 +62,10 @@ export function Projects() {
                                 className="group relative flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                             >
                                 <div className="aspect-[16/9] w-full bg-zinc-100 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
-                                    <Image
+                                    <img
                                         src={project.image}
                                         alt={project.title}
-                                        fill
-                                        className="object-cover"
+                                        className="object-cover w-full h-full"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                 </div>
