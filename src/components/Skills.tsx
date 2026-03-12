@@ -1,7 +1,7 @@
 "use client";
+
 import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";
-
 
 export function Skills() {
     const skills = [
@@ -18,52 +18,44 @@ export function Skills() {
         { name: "MongoDB", icon: "mongodb" },
     ];
 
-
     return (
-        <section id="skills" className="py-10 sm:py-20 overflow-hidden">
+        <section
+            id="skills"
+            className="py-16 sm:py-24 relative"
+            style={{
+                backgroundImage:
+                    "radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)",
+                backgroundSize: "40px 40px",
+            }}
+        >
             <Container>
                 <div className="space-y-12">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="text-3xl font-serif font-bold tracking-tight sm:text-5xl text-foreground text-glow-blue inline-block"
-                    >
-                        Skills
-                    </motion.h2>
 
-                    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-                        <div className="flex w-full overflow-hidden mask-linear-gradient" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
+                    {/* Title */}
+                    <h2 className="text-3xl font-bold font-serif tracking-tight sm:text-4xl text-foreground text-glow-blue inline-block">Skills</h2>
+
+                    {/* Skills Grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+
+                        {skills.map((skill) => (
                             <motion.div
-                                className="flex shrink-0 items-center gap-6 py-4 pr-6"
-                                animate={{ x: "-50%" }}
-                                transition={{
-                                    repeat: Infinity,
-                                    repeatType: "loop",
-                                    duration: 30,
-                                    ease: "linear",
-                                }}
+                                key={skill.name}
+                                whileHover={{ scale: 1.08 }}
+                                className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl border border-white/15 glass-panel
+                text-zinc-300 font-medium shadow-sm
+                hover:text-white hover:border-[#38bdf8]
+                hover:shadow-[0_0_18px_rgba(56,189,248,0.45)]
+                transition-all cursor-default"
                             >
-                                {[...skills, ...skills, ...skills].map((skill, index) => (
-                                    <motion.div
-                                        key={index}
-                                        animate={{ y: [0, -8, 0] }}
-                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-                                        className="flex items-center gap-3 px-7 py-3 rounded-full border border-white/20 glass-panel text-zinc-300 text-base font-medium shadow-sm hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] hover:border-[#38bdf8] hover:text-white transition-all whitespace-nowrap cursor-default"
-                                    >
-                                        <img
-                                            src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-${skill.variant || "original"}.svg`}
-                                            alt={skill.name}
-                                            className={`${skill.name === "AWS" ? "w-8 h-6" : "w-6 h-6"
-                                                }`}
-                                        />
-                                        {skill.name}
-                                    </motion.div>
-                                ))}
-
+                                <img
+                                    src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-${skill.variant || "original"}.svg`}
+                                    alt={skill.name}
+                                    className={`${skill.name === "AWS" ? "w-8 h-6" : "w-6 h-6"}`}
+                                />
+                                {skill.name}
                             </motion.div>
-                        </div>
+                        ))}
+
                     </div>
                 </div>
             </Container>
