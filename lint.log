@@ -1,0 +1,61 @@
+
+> portfolio@0.1.0 lint
+> eslint
+
+
+E:\Projects\Portfolio\src\components\Contact.tsx
+  5:10  warning  'Github' is defined but never used    @typescript-eslint/no-unused-vars
+  5:24  warning  'Linkedin' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\Projects\Portfolio\src\components\Hero.tsx
+  4:10  warning  'ArrowDown' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\Projects\Portfolio\src\components\HeroSocials.tsx
+  47:10  warning  'LeetCodeIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\Projects\Portfolio\src\components\Projects.tsx
+   7:8   warning  'Image' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  65:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+E:\Projects\Portfolio\src\components\Skills.tsx
+  55:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+E:\Projects\Portfolio\src\components\ui\CosmicCursor.tsx
+  25:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+E:\Projects\Portfolio\src\components\ui\CosmicCursor.tsx:25:9
+  23 |
+  24 |     useEffect(() => {
+> 25 |         setIsMounted(true);
+     |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  26 |
+  27 |         // Ensure this only runs on pointing devices (e.g. not touchscreens)
+  28 |         if (window.matchMedia("(pointer: coarse)").matches) {  react-hooks/set-state-in-effect
+
+E:\Projects\Portfolio\src\components\ui\Starfield.tsx
+   32:9   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+E:\Projects\Portfolio\src\components\ui\Starfield.tsx:32:9
+  30 |         // Check for reduced motion preference
+  31 |         const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+> 32 |         setReducedMotion(mediaQuery.matches);
+     |         ^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  33 |
+  34 |         const handleChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+  35 |         mediaQuery.addEventListener('change', handleChange);  react-hooks/set-state-in-effect
+  163:46  warning  'index' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+
+??? 10 problems (2 errors, 8 warnings)
+

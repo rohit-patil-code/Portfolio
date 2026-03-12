@@ -20,7 +20,7 @@ export function Skills() {
 
 
     return (
-        <section id="skills" className="py-10 sm:py-20 bg-zinc-50/50 overflow-hidden">
+        <section id="skills" className="py-10 sm:py-20 overflow-hidden">
             <Container>
                 <div className="space-y-12">
                     <motion.h2
@@ -28,7 +28,7 @@ export function Skills() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl font-serif font-bold tracking-tight sm:text-5xl text-zinc-900"
+                        className="text-3xl font-serif font-bold tracking-tight sm:text-5xl text-foreground text-glow-blue inline-block"
                     >
                         Skills
                     </motion.h2>
@@ -46,9 +46,11 @@ export function Skills() {
                                 }}
                             >
                                 {[...skills, ...skills, ...skills].map((skill, index) => (
-                                    <div
+                                    <motion.div
                                         key={index}
-                                        className="flex items-center gap-3 px-7 py-3 rounded-full border border-zinc-200 bg-white text-zinc-900 text-base font-medium shadow-sm hover:shadow-md hover:border-zinc-300 transition-all whitespace-nowrap"
+                                        animate={{ y: [0, -8, 0] }}
+                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+                                        className="flex items-center gap-3 px-7 py-3 rounded-full border border-white/20 glass-panel text-zinc-300 text-base font-medium shadow-sm hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] hover:border-[#38bdf8] hover:text-white transition-all whitespace-nowrap cursor-default"
                                     >
                                         <img
                                             src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-${skill.variant || "original"}.svg`}
@@ -57,7 +59,7 @@ export function Skills() {
                                                 }`}
                                         />
                                         {skill.name}
-                                    </div>
+                                    </motion.div>
                                 ))}
 
                             </motion.div>

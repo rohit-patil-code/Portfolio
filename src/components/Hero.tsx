@@ -9,22 +9,22 @@ export function Hero() {
         <section className="relative flex min-h-[calc(100vh-4rem)] lg:mt-10 sm:mt-2 flex-col justify-center overflow-hidden py-10 sm:py-0">
             <Container className="flex flex-col items-center justify-center gap-6 mx-auto text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <h1 className="text-4xl font-serif font-bold tracking-tight sm:text-6xl lg:text-7xl">
-                        Hi, I&apos;m <span className="text-zinc-500">Rohit Patil</span>.
+                        Hi, I&apos;m <span className="bg-clip-text text-transparent bg-gradient-to-r from-cosmic-blue to-nebula-purple text-glow-blue">Rohit Patil</span>.
                         <br />
-                        Engineering scalable digital systems.
+                        <span className="text-zinc-300">Engineering scalable digital systems.</span>
                     </h1>
                 </motion.div>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="max-w-4xl text-lg text-muted-foreground sm:text-xl"
+                    transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                    className="max-w-4xl text-lg text-zinc-400 sm:text-xl font-light"
                 >
                     Final-year Computer Science student specializing in full-stack development and AWS cloud. I design and deploy production-ready systems from AI-integrated platforms to real-time detection systems focused on performance, scalability, and real-world impact.
                 </motion.p>

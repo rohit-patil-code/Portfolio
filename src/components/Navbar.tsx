@@ -44,8 +44,8 @@ export function Navbar() {
         <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
             <div
                 className={`w-full max-w-4xl transition-all duration-300 ${scrolled
-                    ? "bg-background/80 backdrop-blur-xl shadow-lg border border-border"
-                    : "bg-background/60 backdrop-blur-md"
+                    ? "bg-[#030014]/70 backdrop-blur-xl shadow-[0_0_20px_rgba(56,189,248,0.1)] border border-white/10"
+                    : "bg-transparent backdrop-blur-md border border-transparent"
                     } rounded-full`}
             >
                 <Container className="flex h-14 items-center justify-between md:justify-center px-4 md:px-6">
@@ -70,10 +70,10 @@ export function Navbar() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground group"
+                                className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-white hover:text-glow-blue group"
                             >
                                 {item.name}
-                                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-foreground transition-all duration-300 group-hover:w-full" />
+                                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#38bdf8] transition-all duration-300 group-hover:w-full shadow-[0_0_10px_#38bdf8]" />
                             </Link>
                         ))}
                     </nav>
@@ -81,7 +81,7 @@ export function Navbar() {
                     {/* Desktop Resume Button */}
                     <Link
                         href="/Resume.pdf"
-                        className="hidden md:flex items-center ml-8 rounded-full border border-border px-4 py-1.5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+                        className="hidden md:flex items-center ml-8 rounded-full border border-white/20 px-4 py-1.5 text-sm font-medium text-foreground hover:bg-[#38bdf8]/10 hover:border-[#38bdf8] hover:text-[#38bdf8] hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all duration-300"
                     >
                         Resume ↗
                     </Link>
@@ -109,7 +109,7 @@ export function Navbar() {
                                 <Link
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="text-lg font-medium text-foreground hover:text-muted-foreground transition-colors"
+                                    className="text-lg font-medium text-muted-foreground hover:text-white hover:text-glow-blue transition-all"
                                 >
                                     {item.name}
                                 </Link>
@@ -123,7 +123,7 @@ export function Navbar() {
                             <Link
                                 href="/Resume.pdf"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="mt-2 inline-flex rounded-full border border-border px-6 py-2 text-base font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+                                className="mt-2 inline-flex rounded-full border border-white/20 px-6 py-2 text-base font-medium text-foreground hover:bg-[#38bdf8]/10 hover:border-[#38bdf8] hover:text-[#38bdf8] hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all duration-300"
                             >
                                 Resume ↗
                             </Link>

@@ -8,20 +8,20 @@ export function About() {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <section id="about" className="py-10 sm:py-20 bg-zinc-50/50">
+        <section id="about" className="py-10 sm:py-20">
             <Container>
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="max-w-4xl space-y-10"
+                    className="max-w-4xl space-y-10 rounded-3xl glass-panel p-8 sm:p-12"
                 >
-                    <h2 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-zinc-900">
+                    <h2 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-foreground text-glow-blue inline-block">
                         About Me
                     </h2>
 
-                    <div className="space-y-6 text-lg sm:text-xl leading-relaxed text-zinc-600">
+                    <div className="space-y-6 text-lg sm:text-xl leading-relaxed text-zinc-300 font-light">
                         <p>
                             I’m a final-year Computer Science student with a strong foundation
                             in Full Stack Development and AWS Cloud, driven by a deep interest
@@ -37,7 +37,7 @@ export function About() {
                                 but on scalability, performance, and long-term maintainability.
                             </p>
                             {!isExpanded && (
-                                <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-zinc-50/80 to-transparent pointer-events-none" />
+                                <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-[#030014]/90 to-transparent pointer-events-none" />
                             )}
                         </div>
 
@@ -80,7 +80,7 @@ export function About() {
                         <div>
                             <button
                                 onClick={() => setIsExpanded(!isExpanded)}
-                                className="text-zinc-900 font-medium hover:text-zinc-600 transition-colors cursor-pointer"
+                                className="text-[#38bdf8] font-medium hover:text-[#a78bfa] transition-colors cursor-pointer hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.8)]"
                             >
                                 {isExpanded ? "See less..." : "See more..."}
                             </button>

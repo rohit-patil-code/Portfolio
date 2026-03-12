@@ -36,7 +36,7 @@ function SocialButton({
         <Link
             href={href}
             target="_blank"
-            className="group inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-300 hover:bg-foreground hover:text-background hover:scale-105"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-background/30 backdrop-blur-sm px-4 py-2 text-sm font-medium text-zinc-300 transition-all duration-300 hover:bg-[#a78bfa]/10 hover:border-[#a78bfa] hover:text-[#a78bfa] hover:shadow-[0_0_15px_rgba(167,139,250,0.4)] hover:-translate-y-1"
         >
             {icon}
             {label}

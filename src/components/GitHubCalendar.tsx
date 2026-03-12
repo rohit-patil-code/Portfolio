@@ -8,10 +8,10 @@ import { ActivityCalendar } from "react-activity-calendar";
 import { Github, Code2, Loader2 } from "lucide-react";
 import { clsx } from "clsx";
 
-// The exact green colors used by GitHub
+// The space theme colors (cosmic blue scale)
 const explicitTheme = {
-    light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
-    dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+    light: ['#1e1b4b', '#0ea5e9', '#0284c7', '#0369a1', '#075985'], // Adjusting for dark bg
+    dark: ['#1e1b4b', '#0ea5e9', '#0284c7', '#0369a1', '#075985'],
 };
 
 export function GitHubCalendar() {
@@ -62,7 +62,7 @@ export function GitHubCalendar() {
                     className="space-y-6"
                 >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
+                        <h2 className="text-2xl font-bold font-serif tracking-tight text-foreground text-glow-blue inline-block">
                             {activeTab === 'github' ? <Link href="https://github.com/rohit-patil-code">
                                 Github
                             </Link> : <Link href="https://leetcode.com/u/Rohit_patil_/">
@@ -71,14 +71,14 @@ export function GitHubCalendar() {
                         </h2>
 
                         {/* Tab Switcher */}
-                        <div className="flex p-1 space-x-1 bg-zinc-100/80 rounded-lg w-fit border border-zinc-200/50">
+                        <div className="flex p-1 space-x-1 glass-panel rounded-lg w-fit border border-white/20">
                             <button
                                 onClick={() => setActiveTab('github')}
                                 className={clsx(
                                     "flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200",
                                     activeTab === 'github'
-                                        ? "bg-white text-zinc-900 shadow-sm ring-1 ring-zinc-200"
-                                        : "text-zinc-500 hover:text-zinc-700 hover:bg-zinc-200/50"
+                                        ? "bg-[#38bdf8]/20 text-[#38bdf8] shadow-[0_0_10px_rgba(56,189,248,0.3)] ring-1 ring-[#38bdf8]/50"
+                                        : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5"
                                 )}
                             >
                                 <Github className="w-4 h-4" />
@@ -89,8 +89,8 @@ export function GitHubCalendar() {
                                 className={clsx(
                                     "flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200",
                                     activeTab === 'leetcode'
-                                        ? "bg-white text-zinc-900 shadow-sm ring-1 ring-zinc-200"
-                                        : "text-zinc-500 hover:text-zinc-700 hover:bg-zinc-200/50"
+                                        ? "bg-[#38bdf8]/20 text-[#38bdf8] shadow-[0_0_10px_rgba(56,189,248,0.3)] ring-1 ring-[#38bdf8]/50"
+                                        : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5"
                                 )}
                             >
                                 <Code2 className="w-4 h-4" />
@@ -111,11 +111,11 @@ export function GitHubCalendar() {
                         )}
                     </div> */}
 
-                    <div className="w-full overflow-hidden rounded-xl border border-zinc-200 bg-white p-6 md:p-8 flex justify-center items-center min-h-[200px]">
+                    <div className="w-full overflow-hidden rounded-xl border border-white/10 glass-panel p-6 md:p-8 flex justify-center items-center min-h-[200px] text-zinc-300">
                         {activeTab === 'github' && (
                             <GitHubCalendarLib
                                 username="rohit-patil-code"
-                                colorScheme="light"
+                                colorScheme="dark"
                                 theme={explicitTheme}
                                 blockSize={14}
                                 blockMargin={4}
@@ -133,7 +133,7 @@ export function GitHubCalendar() {
                                 )}
 
                                 {leetcodeError && !isLoadingLeetcode && (
-                                    <div className="text-red-500 text-sm font-medium bg-red-50 py-3 px-4 rounded-lg">
+                                    <div className="text-red-500 text-sm font-medium bg-red-900/20 py-3 px-4 rounded-lg border border-red-500/50">
                                         {leetcodeError}
                                     </div>
                                 )}
@@ -142,7 +142,7 @@ export function GitHubCalendar() {
                                     <ActivityCalendar
                                         data={leetcodeData}
                                         theme={explicitTheme}
-                                        colorScheme="light"
+                                        colorScheme="dark"
                                         blockSize={14}
                                         blockMargin={4}
                                         fontSize={14}

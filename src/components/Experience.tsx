@@ -33,18 +33,18 @@ export function Experience() {
                     transition={{ duration: 0.5 }}
                     className="space-y-12"
                 >
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-zinc-900">Education</h2>
-                    <div className="relative border-l border-zinc-200 ml-3 md:ml-6 space-y-12">
+                    <h2 className="text-3xl font-bold font-serif tracking-tight sm:text-4xl text-foreground text-glow-blue inline-block">Education</h2>
+                    <div className="relative border-l border-white/20 ml-3 md:ml-6 space-y-12">
                         {education.map((item, index) => (
-                            <div key={index} className="relative pl-8 md:pl-12">
-                                <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-zinc-900 ring-4 ring-white" />
-                                <h3 className="text-xl font-semibold text-zinc-900">{item.role}</h3>
+                            <div key={index} className="relative pl-8 md:pl-12 group">
+                                <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-[#38bdf8] ring-4 ring-[#030014] shadow-[0_0_10px_#38bdf8] transition-all duration-300 group-hover:shadow-[0_0_20px_#38bdf8] group-hover:bg-white" />
+                                <h3 className="text-xl font-semibold text-zinc-200 group-hover:text-[#38bdf8] transition-colors">{item.role}</h3>
                                 <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 mt-1 mb-2">
-                                    <span className="font-medium text-zinc-700">{item.company}</span>
-                                    <span className="hidden sm:inline text-zinc-400">•</span>
-                                    <span className="text-zinc-500 text-sm">{item.period}</span>
+                                    <span className="font-medium text-zinc-400">{item.company}</span>
+                                    <span className="hidden sm:inline text-zinc-600">•</span>
+                                    <span className="text-[#a78bfa] text-sm font-mono">{item.period}</span>
                                 </div>
-                                <p className="text-zinc-600 leading-relaxed max-w-2xl">{item.description}</p>
+                                <p className="text-zinc-400 leading-relaxed max-w-2xl font-light">{item.description}</p>
                             </div>
                         ))}
                     </div>
