@@ -17,6 +17,7 @@ export function CosmicCursorAura() {
     const auraY = useSpring(mouseY, auraSpringConfig);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsMounted(true);
 
         // Ensure this only runs on pointing devices (e.g. not touchscreens)
