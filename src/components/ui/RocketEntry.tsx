@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function RocketEntry() {
     const [showOverlay, setShowOverlay] = useState(true);
-    const [phase, setPhase] = useState<"idle" | "ignition" | "hyperspace" | "blast">("idle");
+    const [phase, setPhase] = useState<"idle" | "typing" | "ready" | "ignition" | "hyperspace" | "blast">("idle");
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -17,23 +17,29 @@ export function RocketEntry() {
         }
 
         // --- Cinematic Timeline ---
-        // 0.0s: Mounts in idle, almost immediately starts ignition
-        const t1 = setTimeout(() => setPhase("ignition"), 100);
-        // 1.0s: Enters hyperspace (canvas lines start going crazy, rocket shakes hard)
-        const t2 = setTimeout(() => setPhase("hyperspace"), 1000);
-        // 4.0s: Warp blast flash triggers
-        const t3 = setTimeout(() => setPhase("blast"), 4000);
-        // 4.8s: Remove overlay, showing main portfolio
-        const t4 = setTimeout(() => {
-            // sessionStorage.setItem("hasSeenRocketIntro", "true");
+        // 0.0s: Mounts in idle, immediately starts typing
+        const t1 = setTimeout(() => setPhase("typing"), 100);
+        // 2.5s: Typing finishes, rocket fades in (no fire yet)
+        const t2 = setTimeout(() => setPhase("ready"), 2500);
+        // 3.5s: Rocket ignites, flame appears, background stars start slow
+        const t3 = setTimeout(() => setPhase("ignition"), 3500);
+        // 4.5s: Enters hyperspace (canvas lines go fast, rocket shakes hard)
+        const t4 = setTimeout(() => setPhase("hyperspace"), 4500);
+        // 7.5s: Warp blast flash triggers
+        const t5 = setTimeout(() => setPhase("blast"), 7500);
+        // 8.3s: Remove overlay, showing main portfolio
+        const t6 = setTimeout(() => {
+            sessionStorage.setItem("hasSeenRocketIntro", "true");
             setShowOverlay(false);
-        }, 4800);
+        }, 8300);
 
         return () => {
             clearTimeout(t1);
             clearTimeout(t2);
             clearTimeout(t3);
             clearTimeout(t4);
+            clearTimeout(t5);
+            clearTimeout(t6);
         };
     }, []);
 
@@ -128,40 +134,82 @@ export function RocketEntry() {
                 {/* Hyperspace Background Canvas */}
                 <canvas
                     ref={canvasRef}
-                    className="absolute inset-0 w-full h-full pointer-events-none"
-                    style={{ opacity: phase === "idle" ? 0 : 1 }}
+                    className="absolute inset-0 z-0 w-full h-full pointer-events-none"
+                    style={{ opacity: (phase === "idle" || phase === "typing" || phase === "ready") ? 0 : 1 }}
                 />
 
-                <div className="relative z-10 flex flex-col items-center">
+                <div className="relative z-50 flex flex-col items-center">
+                    {/* Typing Text Effect */}
+                    <AnimatePresence>
+                        {phase === "typing" && (
+                            <motion.div
+                                initial={{ opacity: 1 }}
+                                exit={{ opacity: 0, scale: 0.95, filter: "blur(5px)" }}
+                                transition={{ duration: 0.5 }}
+                                className="absolute z-20 flex whitespace-pre"
+                            >
+                                {"Preparing for the journey ...".split("").map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.02, delay: i * 0.06 }}
+                                        className="text-2xl md:text-4xl font-mono text-[#38bdf8] drop-shadow-[0_0_10px_rgba(56,189,248,0.8)]"
+                                    >
+                                        {char}
+                                    </motion.span>
+                                ))}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
                     {/* The Rocket */}
                     <AnimatePresence>
-                        {phase !== "blast" && (
+                        {(phase === "ready" || phase === "ignition" || phase === "hyperspace" || phase === "blast") && (
                             <motion.div
-                                initial={{ y: 0 }}
+                                key="main-rocket"
+                                initial={{ y: 50, opacity: 0 }}
                                 animate={
-                                    phase === "hyperspace"
+                                    phase === "blast"
                                         ? {
-                                            y: 0,
-                                            x: [-6, 6, -8, 8, -4, 4], // Aggressive shaking
-                                            rotate: [-1, 1, -2, 2, -1, 1],
+                                            y: "-150vh",
+                                            opacity: 0,
+                                            scale: 0.5,
                                         }
-                                        : phase === "ignition"
+                                        : phase === "hyperspace"
                                             ? {
                                                 y: 0,
-                                                x: [-2, 2, -2, 2, 0], // Mild vibration
+                                                x: [-6, 6, -8, 8, -4, 4], // Aggressive shaking
+                                                rotate: [-1, 1, -2, 2, -1, 1],
+                                                opacity: 1,
+                                                scale: 1,
                                             }
-                                            : {
-                                                y: [0, -10, 0], // Gentle float
-                                            }
+                                            : phase === "ignition"
+                                                ? {
+                                                    y: 0,
+                                                    x: [-2, 2, -2, 2, 0], // Mild vibration
+                                                    opacity: 1,
+                                                    scale: 1,
+                                                }
+                                                : {
+                                                    y: [0, -10, 0], // Gentle float
+                                                    x: 0,
+                                                    opacity: 1,
+                                                    scale: 1,
+                                                }
                                 }
                                 transition={
-                                    phase === "hyperspace"
-                                        ? { duration: 0.1, repeat: Infinity, ease: "linear" }
-                                        : phase === "ignition"
-                                            ? { duration: 0.2, repeat: Infinity }
-                                            : { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                                    phase === "blast"
+                                        ? { duration: 0.5, ease: "easeIn" }
+                                        : phase === "hyperspace"
+                                            ? { duration: 0.1, repeat: Infinity, ease: "linear" }
+                                            : phase === "ignition"
+                                                ? { duration: 0.2, repeat: Infinity }
+                                                : {
+                                                    opacity: { duration: 0.5 },
+                                                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                                                }
                                 }
-                                exit={{ y: "-150vh", opacity: 0, scale: 0.5, transition: { duration: 0.4 } }}
                                 className="relative w-32 h-48 drop-shadow-[0_0_30px_rgba(56,189,248,0.6)]"
                             >
                                 {/* SVG Rocket */}
@@ -189,13 +237,15 @@ export function RocketEntry() {
                                     {(phase === "ignition" || phase === "hyperspace") && (
                                         <motion.div
                                             initial={{ opacity: 0, scaleY: 0 }}
-                                            animate={
-                                                phase === "hyperspace"
-                                                    ? { opacity: 1, scaleY: [2, 3, 2.5, 3.5, 2] } // Huge blast
-                                                    : { opacity: 1, scaleY: [1, 1.5, 1.2, 1.8, 1.5] } // Building up
-                                            }
-                                            exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.2, repeat: Infinity, repeatType: "mirror" }}
+                                            animate={{
+                                                opacity: 1,
+                                                scaleY: phase === "hyperspace" ? [2, 3, 2.5, 3.5, 2] : [1, 1.5, 1.2, 1.6, 1]
+                                            }}
+                                            exit={{ opacity: 0, scaleY: 0 }}
+                                            transition={{
+                                                opacity: { duration: 0.3 },
+                                                scaleY: { duration: 0.15, repeat: Infinity, repeatType: "mirror" }
+                                            }}
                                             className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-10 h-32 origin-top"
                                         >
                                             <div
@@ -219,7 +269,7 @@ export function RocketEntry() {
                             animate={{ scale: 20, opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="absolute z-50 w-64 h-64 rounded-full bg-white blur-3xl pointer-events-none"
+                            className="absolute z-[100] w-64 h-64 rounded-full bg-white blur-3xl pointer-events-none"
                             style={{
                                 boxShadow: "0 0 150px 100px rgba(56, 189, 248, 0.8), 0 0 300px 200px rgba(167, 139, 250, 0.6)",
                             }}
