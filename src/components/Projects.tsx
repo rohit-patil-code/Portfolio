@@ -19,8 +19,8 @@ export function Projects() {
         {
             title: "AI-Powered Blog Editor",
             description: "Full-stack blogging platform with AI content assistance, clean UI, and scalable architecture. Features intelligent editing suggestions and automated formatting.",
-            tech: ["React.js", "Node.js", "Redis", "AWS EC2", "AWS RDS", "AWS RDS"],
-            image: "https://images.unsplash.com/photo-1499750310159-54f0f2954aef?q=80&w=2600&auto=format&fit=crop",
+            tech: ["React.js", "Node.js", "Redis", "AWS EC2", "AWS RDS"],
+            image: "./AI-Blog-Editor.png",
             demo: "https://blog.rohitcodes.tech",
             github: "https://github.com/rohit-patil-code/AI-Blog-Editor"
         },

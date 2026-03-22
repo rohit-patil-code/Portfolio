@@ -19,6 +19,11 @@ export function GitHubCalendar() {
     const [leetcodeData, setLeetcodeData] = useState<Array<{ date: string; count: number; level: 0 | 1 | 2 | 3 | 4 }>>([]);
     const [isLoadingLeetcode, setIsLoadingLeetcode] = useState(false);
     const [leetcodeError, setLeetcodeError] = useState<string | null>(null);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => {
         if (activeTab === 'leetcode' && leetcodeData.length === 0) {
@@ -112,7 +117,7 @@ export function GitHubCalendar() {
                     </div> */}
 
                     <div className="w-full overflow-hidden rounded-xl border border-white/10 glass-panel p-6 md:p-8 flex justify-center items-center min-h-[200px] text-zinc-300">
-                        {activeTab === 'github' && (
+                        {isMounted && activeTab === 'github' && (
                             <GitHubCalendarLib
                                 username="rohit-patil-code"
                                 colorScheme="dark"
@@ -123,7 +128,7 @@ export function GitHubCalendar() {
                             />
                         )}
 
-                        {activeTab === 'leetcode' && (
+                        {isMounted && activeTab === 'leetcode' && (
                             <div className="w-full flex justify-center">
                                 {isLoadingLeetcode && (
                                     <div className="flex flex-col items-center justify-center space-y-3 text-zinc-500 min-h-[150px]">
